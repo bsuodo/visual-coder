@@ -1,13 +1,20 @@
 # Visual Editor
-Ik maak dit project om meer te leren over algoritmes, compilers en ui. Voor mijn visual editor wil ik een soort speelruimte waar je kan coderen en dan kun je met blokken of nodes onder elkaar stapelen om visueel te coderen. Je kan bij je speelruimte bewegen nodes verplaatsen en de game kun je bouwen of spelen. Ik dacht ook aan een viewport voor als je sprites wilt verplaatsen zodat je geen spawn sprite hoeft te doen, ook scenes wil ik doen, assets. Maar dat is enorm veel werk binnen 1 week dus dacht ik, als het met binnen een week helemaak niks lukt dan ga ik bezig met een nieuwe project, en lukt het wel dan kan ik naar week 2, en hernoem ik dit bestand naar README1.md.
 
-Het gebruikt geen data, en is MIT licensies dus bij gebruik meld bij naam.
+Ik maak dit project om te leren en meer te na te denken voor meer oplosingen door een eigen code editor te maken, maar met een speciale manier van coderen, visual coding. Het heeft hetzelfde soort codeer style als Buildbox en Unreal Engine blueprints, maar dan kindvriendelijk.
 
-Ik bouw voor Windows en Linux zoals altijd. Maar Macos helaas niet. Daarvoor heb ik een Macbook nodig.
+Het heeft nodes die je dan kan verbinden zoals een "spawn object", wat ervoor zorgt dat het object spawned in spel, di kun je gebruik na vorbeeld evenement "when start game".
 
-Ik begin vanaf 1 oktober t/m 8 oktober.
+Dit help jongeren makkelijker te leren programmeren, dit is Geïnspireerd door scratch, vanwege scratch's beperking en hoe sloom het is, dacht ik er zelf eentje te maken maar leuker, door meer mogelijkheden te geven, maar ook in balans hou met hoe complex het wordt.
 
-Het lijkt meer op een 2D Game Engine, zoals scratch, maar dan GameMaker studio 2 style coderen.
+Wat ik hier precies wil mee gaan leren is, code generaton, algoritmes, user interface, en werken met grotere projecten, mijn vorige project ging erg goed, dus dacht ik wat moeilijker voor mezelf te maken. De engine zelf maakt niet uit in wat het geprogrameerd is maar het generate code in SDL3 in c. Natuurlijk is dit allemaal 2D.
+
+Je hebt in de engine een workspace zoal scratch, toolbar, en een hub voor al je projecten dat is het. Wil je geluid pak dan een assets node en open het bestand en je hebt het ingeladen, zo simpel is het. Ik zit te denken om extensies toe te voegen, instelingen zoal toegankelijkheid voor mensen die een beperking hebben.
+
+Op mijn huidige laptop, kan ik niet erg veel, maar dat is juist ook goed omdat de meeste kinderen in de bassischool of jongeren niet een van de snelste laptops hebben zorgt het ervoor dat ik rekening ermee moet houden, dit laptop zegt dan tegen mij of het te zwaar is en of ik het kan optimalizeren.
+
+Ik ga **NIET VOOR WEB** maar voor, LINUX en WINDOWS voor nu. Later zou ik voor MAC kunnen compilen, als het lukt.
+
+Dit project gebruikt MIT license.
 
 Hier onder staan mijn gegevens:
     - studentnaam: **A. Boutakmanti**
