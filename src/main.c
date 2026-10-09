@@ -8,13 +8,16 @@ int main()
     
     while (!WindowShouldClose())
     {
+        ControlNodes();
         ControlWorkspace();
                     
         BeginDrawing();
             ClearBackground((Color){15, 15, 15, 255});
         
             RenderWorkspace();
-    
+            RenderNodes();
+
+            DrawText(TextFormat("X: %f - Y: %f - Z: %f", x, y, zoom), 0, 0, 32, RAYWHITE);
         EndDrawing();
     }
     

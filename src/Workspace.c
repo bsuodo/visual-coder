@@ -52,7 +52,4 @@ void RenderWorkspace()
     {
         DrawLineEx((Vector2){0, count}, (Vector2){GetScreenWidth(), count}, 2, (Color){45, 45, 45, 255});
     }
-
-    // debug
-    DrawText(TextFormat("X: %f - Y: %f - Z: %f", x, y, zoom), 0, 0, 32, RAYWHITE);
 }
