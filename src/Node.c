@@ -1,17 +1,35 @@
 #include "Node.h"
 
 Node* nodes;
-char nodes_lengte;
+int nodes_lengte;
+
+Node* CheckMouseNodeCollision(int *offset_x, int *offset_y)
+{
+    for (int count = 0; count < nodes_lengte; count++)
+    {
+        if (x + GetMouseX()/zoom >= nodes[count].origin.x       AND
+            x + GetMouseX()/zoom <= nodes[count].origin.x + 192 AND
+            y + GetMouseY()/zoom >= nodes[count].origin.y       AND
+            y + GetMouseY()/zoom <= nodes[count].origin.y + 128
+        )
+        {
+            *offset_x = (int)(x + GetMouseX()/zoom - nodes[count].origin.x);
+            *offset_y = (int)(y + GetMouseY()/zoom - nodes[count].origin.y);
+            return &nodes[count];
+        }
+    }
+
+    return NONE;
+}
 
 void ControlNodes()
 {
-    if (IsKeyDown(KEY_RIGHT_CONTROL) || IsKeyDown(KEY_LEFT_CONTROL))
+    if (IsKeyDown(KEY_RIGHT_CONTROL) OR IsKeyDown(KEY_LEFT_CONTROL))
     {
-        if (IsKeyPressed(KEY_N))
+        if (IsKeyPressed(KEY_SPACE))
         {
             nodes = MemRealloc(nodes, (nodes_lengte + 1)*sizeof(Node));
             nodes[nodes_lengte] = (Node){
-                .kleur = (Color){GetRandomValue(0, 255), GetRandomValue(0, 255), GetRandomValue(0, 255), 255},
                 .rect.width = 192,
                 .rect.height = 128
             };
@@ -37,6 +55,6 @@ void RenderNodes()
     for (int count = 0; count < nodes_lengte; count++)
     {
         Node *current_node = &nodes[count]; 
-        DrawRectangleRounded(current_node->rect, 0.3, 1, current_node->kleur);
+        DrawRectangleRounded(current_node->rect, 0.3, 6, GREEN);
     }
 }

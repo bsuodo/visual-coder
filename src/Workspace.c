@@ -8,16 +8,24 @@ int zoomdir = 0;
 int mouse_origin_x = 0;
 int mouse_origin_y = 0;
 
+int mouse_smooth_x = 0;
+int mouse_smooth_y = 0;
+
+int offset_x = 0;
+int offset_y = 0;
+
+Node* selected_node;
+
 void ControlWorkspace()
 {
-    if (IsKeyDown(KEY_RIGHT_CONTROL) || IsKeyDown(KEY_LEFT_CONTROL))
+    if (IsKeyDown(KEY_RIGHT_CONTROL) OR IsKeyDown(KEY_LEFT_CONTROL))
     {
         // zoom dir
-        if      (IsKeyPressed(KEY_MINUS))                                         {zoomdir = -1;}
-        else if (IsKeyPressed(KEY_EQUAL))                                         {zoomdir =  1;}
-        if      ((zoom >= 2.5 && zoomdir == 1) || (zoom <= 0.8 && zoomdir == -1)) {zoomdir =  0;}
+        if      (IsKeyPressed(KEY_MINUS))                                           {zoomdir = -1;}
+        else if (IsKeyPressed(KEY_EQUAL))                                           {zoomdir =  1;}
+        if      ((zoom >= 2.5 AND zoomdir == 1) OR (zoom <= 0.8 AND zoomdir == -1)) {zoomdir =  0;}
 
-        if (zoom <= 2.7 && zoom >= 0.6)
+        if (zoom <= 2.7 AND zoom >= 0.6)
         {
             float worldX = GetMouseX() / zoom + x;
             float worldY = GetMouseY() / zoom + y;
@@ -30,10 +38,25 @@ void ControlWorkspace()
         }
     }
 
+    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {selected_node = CheckMouseNodeCollision(&offset_x, &offset_y);}
+    if (IsMouseButtonUp(MOUSE_BUTTON_LEFT))      {selected_node = NONE; mouse_smooth_x=0; mouse_smooth_y=0;}
+    
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
     {
-        x += (mouse_origin_x - GetMouseX())/zoom;
-        y += (mouse_origin_y - GetMouseY())/zoom;
+        if     (selected_node == NONE)
+        {
+            mouse_smooth_x += (mouse_origin_x - GetMouseX())/zoom;
+            mouse_smooth_y += (mouse_origin_y - GetMouseY())/zoom;
+            x += mouse_smooth_x / 12;
+            y += mouse_smooth_y / 12;
+            mouse_smooth_x -= mouse_smooth_x / 6;
+            mouse_smooth_y -= mouse_smooth_y / 6;
+        }
+        else // if selected
+        {
+            selected_node->origin.x += ((x + GetMouseX()/zoom - offset_x) - selected_node->origin.x) / 2;
+            selected_node->origin.y += ((y + GetMouseY()/zoom - offset_y) - selected_node->origin.y) / 2;
+        }
     }
     mouse_origin_x = GetMouseX();
     mouse_origin_y = GetMouseY();

@@ -3,14 +3,21 @@
 
 #include "Engine.h"
 
-void ControlNodes();
-void RenderNodes();
+typedef enum TypeNode
+{
+    DEFAULT
+} TypeNode;
 
 typedef struct Node
 {
     Vector2 origin;
     Rectangle rect;
-    Color kleur;
+    TypeNode type;
 } Node;
+
+void ControlNodes();
+void RenderNodes();
+
+Node* CheckMouseNodeCollision(int *offset_x, int *offset_y);
 
 #endif//NODE_H
