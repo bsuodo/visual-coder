@@ -1,6 +1,8 @@
 # 1 - 4 dagen - visual coder
 
-In deze vier dagen vanaf, begin ik met een workspace en nodes die kan bewegen. je kan ook inzoomen, uitzoomen, en alles voelt vrij soepel. Ik weet nog niet in wat ik het ga maken, ik zat te denken aan C voor de engine en de code generation, zodat elke student di makkelijk kan uitvoeren inplaats van browser based apps.
+In deze vier dagen vanaf, begin ik met een workspace en nodes die kan bewegen. je kan ook inzoomen, uitzoomen, en alles voelt vrij soepel. Ik weet nog niet in wat ik het ga maken, ik zat te denken aan C voor de engine en de code generation, zodat elke student die makkelijk kan uitvoeren inplaats van browser based apps.
+
+Ik wil dat leren om ui te maken in C.
 
 Mijn werk process is bij het scrhijven van deze projectkaart de planning B1-K1-W1.
 
