@@ -6,6 +6,8 @@
 void ControlWorkspace();
 void RenderWorkspace();
 
+void SelectNode(void* p_node);
+
 extern float x;
 extern float y;
 extern float zoom;

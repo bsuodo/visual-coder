@@ -5,5 +5,6 @@
 
 void ControlFinder();
 void RenderFinder();
+bool FinderUIBlock();
 
 #endif//FINDER_H

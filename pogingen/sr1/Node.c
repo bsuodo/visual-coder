@@ -22,23 +22,27 @@ Node* CheckMouseNodeCollision(int *offset_x, int *offset_y)
     return NONE;
 }
 
+Node* AddNode()
+{
+    nodes = MemRealloc(nodes, (nodes_lengte + 1)*sizeof(Node));
+    nodes[nodes_lengte] = (Node){
+        .rect.width = 192,
+        .rect.height = 128
+    };
+            
+    nodes[nodes_lengte].origin.x = x + GetMouseX()/zoom  - 192/2;
+    nodes[nodes_lengte].origin.y = y + GetMouseY()/zoom - 128/2;
+            
+    nodes_lengte++;
+
+    return &nodes[nodes_lengte - 1];
+}
+
 void ControlNodes()
 {
     if (IsKeyDown(KEY_RIGHT_CONTROL) OR IsKeyDown(KEY_LEFT_CONTROL))
     {
-        if (IsKeyPressed(KEY_SPACE))
-        {
-            nodes = MemRealloc(nodes, (nodes_lengte + 1)*sizeof(Node));
-            nodes[nodes_lengte] = (Node){
-                .rect.width = 192,
-                .rect.height = 128
-            };
-            
-            nodes[nodes_lengte].origin.x = x + GetMouseX()/zoom  - 192/2;
-            nodes[nodes_lengte].origin.y = y + GetMouseY()/zoom - 128/2;
-            
-            nodes_lengte++;
-        }
+        if (IsKeyPressed(KEY_SPACE)) AddNode();
     }
 
     for (int count = 0; count < nodes_lengte; count++)
@@ -50,11 +54,11 @@ void ControlNodes()
     }
 }
 
-void RenderNodes()
+void RenderNodes(Node* nodes_list, int size)
 {
-    for (int count = 0; count < nodes_lengte; count++)
+    for (int count = 0; count < size; count++)
     {
-        Node *current_node = &nodes[count]; 
+        Node *current_node = &nodes_list[count]; 
         DrawRectangleRounded(current_node->rect, 0.3, 6, GREEN);
     }
 }

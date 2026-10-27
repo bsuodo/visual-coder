@@ -14,10 +14,14 @@ int mouse_smooth_y = 0;
 int offset_x = 0;
 int offset_y = 0;
 
-Node* selected_node;
+Node* selected_node = NULL;
+
+void SelectNode(void* p_node) { selected_node = (Node*)p_node; }
 
 void ControlWorkspace()
 {
+    TraceLog(LOG_ERROR, "%d", !FinderUIBlock());
+
     if (IsKeyDown(KEY_RIGHT_CONTROL) OR IsKeyDown(KEY_LEFT_CONTROL))
     {
         // zoom dir
@@ -41,7 +45,7 @@ void ControlWorkspace()
     if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {selected_node = CheckMouseNodeCollision(&offset_x, &offset_y);}
     if (IsMouseButtonUp(MOUSE_BUTTON_LEFT))      {selected_node = NONE; mouse_smooth_x=0; mouse_smooth_y=0;}
     
-    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+    if (IsMouseButtonDown(MOUSE_BUTTON_LEFT) && (!FinderUIBlock()))
     {
         if     (selected_node == NONE)
         {

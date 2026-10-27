@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#workspace {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(20, 20, 20);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-image:
+        repeating-linear-gradient(to right, transparent 0 62px, #444 62px 64px),
+        repeating-linear-gradient(to bottom, transparent 0 62px, #444 62px 64px);
+        
+}
+
+#nodes_editor_button {
+    width: 192px;
+    height: 64px;
+    position: fixed;
+    top: 64px;
+    left: calc(100vw - 192px);
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+    border: 0;
+    background-color: rgb(255, 166, 0);
+}
+
+#nodes_editor_button:hover {
+    background-color: rgb(194, 126, 0);
+}
+
+#nodes_editor_button:active {
+    background-color: rgb(255, 166, 0);
+}
+
+#nodes_editor_widget {
+    width: 512px;
+    height: 100vh;
+    position: fixed;
+    background-color: orange;
+    left: calc(100vw);
+}

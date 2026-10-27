@@ -15,4 +15,6 @@
 
 void initialize();
 
+float EaseInAndOut(float time);
+
 #endif//ENGINE_H
